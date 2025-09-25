@@ -21,112 +21,7 @@
           }}</q-toolbar-title>
         </transition>
         <q-space />
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang !== 'zh-hans'"
-            icon="img:statics/icons/IOS.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/md/ios/zh-CN')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >IOS APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang === 'zh-hans'"
-            icon="img:statics/icons/IOS.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/md/ios/en')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >IOS APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang !== 'zh-hans'"
-            icon="img:statics/icons/android.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/md/android/zh-CN')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >Android APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            v-show="lang === 'zh-hans'"
-            icon="img:statics/icons/android.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://www.56yhz.com/md/android/en')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >Android APP
-            </q-tooltip>
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            icon="img:statics/icons/GitHub.png"
-            round
-            dense
-            flat
-            @click="brownlink('https://github.com/GreaterWMS/GreaterWMS')"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >GitHub Link</q-tooltip
-            >
-          </q-btn>
-        </transition>
-        <transition appear enter-active-class="animated zoomIn">
-          <q-btn
-            icon="api"
-            round
-            dense
-            flat
-            @click="apiLink()"
-            style="margin: 0 10px 0 10px"
-          >
-            <q-tooltip
-              content-class="bg-amber text-black shadow-4"
-              :offset="[15, 15]"
-              content-style="font-size: 12px"
-              >{{ $t('index.api') }}</q-tooltip
-            >
-          </q-btn>
-        </transition>
+        
         <transition appear enter-active-class="animated zoomIn">
           <q-btn
             square
@@ -731,8 +626,8 @@
   </q-layout>
 </template>
 <script>
-import { get, getauth, post, baseurl } from 'boot/axios_request'
-import { LocalStorage, SessionStorage, openURL } from 'quasar'
+import { get, getauth, post } from 'boot/axios_request'
+import { LocalStorage, SessionStorage } from 'quasar'
 import Bus from 'boot/bus.js'
 
 export default {
@@ -799,12 +694,6 @@ export default {
         _this.miniState = false
         e.stopPropagation()
       }
-    },
-    brownlink (e) {
-      openURL(e)
-    },
-    apiLink () {
-      openURL(baseurl + '/api/docs/')
     },
     Login () {
       var _this = this
